@@ -9,13 +9,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.sfsu.starbuzz.Models.ProductModel;
 
-public class Category extends Activity {
-    public ArrayAdapter<ProductModel> listAdapter;
+public class Category extends AppCompatActivity {
 
     public static List<ProductModel> populateModel() {
         List<ProductModel> pm = new ArrayList<>();
@@ -40,7 +41,7 @@ public class Category extends Activity {
 
         List<ProductModel> productModel = populateModel();
 
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, productModel);
+        ArrayAdapter<ProductModel> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, productModel);
 
         Log.i("LIST => ", productModel.get(0).getName());
 
@@ -53,9 +54,10 @@ public class Category extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(Category.this, Detail.class);
-                intent.putExtra(Detail.EXTRA_DRINKID, (int)l);
-                startActivity(intent);
+                //intent.putExtra(Detail.EXTRA_DRINKID, (int)l);
+                //startActivity(intent);
             }
         };
+        listView.setOnItemClickListener(itemClickListener);
     }
 }
