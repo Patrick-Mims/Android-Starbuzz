@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">StarBuzz</string>
+    <string-array name="options">
+        <item>Beauty</item>
+        <item>Candy</item>
+        <item>Cereal</item>
+        <item>Coffee</item>
+        <item>Crackers</item>
+        <item>Dairy</item>
+        <item>Frozen</item>
+        <item>Grocery</item>
+        <item>Meat</item>
+        <item>Produce</item>
+    </string-array>
+    <string name="question">Do you like Women?</string>
+    <string name="response">Yes!</string>
+</resources>

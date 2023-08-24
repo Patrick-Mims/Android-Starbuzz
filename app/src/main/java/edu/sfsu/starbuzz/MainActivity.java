@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import edu.sfsu.starbuzz.Services.DataService;
+
 public class MainActivity extends AppCompatActivity {
 
     public void updateMainTextView(View view) {
@@ -45,5 +47,11 @@ public class MainActivity extends AppCompatActivity {
         };
 
         listView.setOnItemClickListener(itemClickListener);
+    }
+
+    public void onClick(View view) {
+        Intent intent = new Intent(this, DataService.class);
+        intent.putExtra(DataService.EXTRA_MESSAGE, getResources().getString(R.string.response));
+        startService(intent);
     }
 }
