@@ -8,14 +8,14 @@ import android.util.Log;
 import android.widget.TextView;
 
 public class Detail extends Activity {
-    public static final String EXTRA_DRINK_ID = "drinkId";
+    public static final String EXTRA_ID = "drinkId";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
 
-        int id = (Integer) getIntent().getExtras().get(EXTRA_DRINK_ID);
+        int id = (Integer) getIntent().getExtras().get(EXTRA_ID);
 
         TextView name = (TextView) findViewById(R.id.name);
         TextView desc = (TextView) findViewById(R.id.description);

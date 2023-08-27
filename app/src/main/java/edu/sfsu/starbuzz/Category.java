@@ -25,6 +25,8 @@ import edu.sfsu.starbuzz.Stack.ItemStack;
 public class Category extends AppCompatActivity {
     public ArrayAdapter<ProductModel> listAdapter;
 
+    public static final String INTENT_CATEGORY_ID = "id";
+
     public static void buildQueue(ItemQueue<ProductModel>model) {
        model = new ItemQueue<>();
 
@@ -62,7 +64,12 @@ public class Category extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.category);
+
+        int id = (Integer)getIntent().getExtras().get(INTENT_CATEGORY_ID);
+
+        Log.i("CATEGORY","CATEGORY ITEM -> " + id);
 
         List<ProductModel> model = createDataModel();
 
@@ -75,7 +82,7 @@ public class Category extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
                 Intent intent = new Intent(Category.this, Detail.class);
-                intent.putExtra(Detail.EXTRA_DRINK_ID, (int)id);
+                intent.putExtra(Detail.EXTRA_ID, (int)id);
                 startActivity(intent);
             }
         };
